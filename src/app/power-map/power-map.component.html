@@ -1,0 +1,111 @@
+<div style="height: 100%" class="ui grid">
+
+    <div class="ten wide column">
+        <!--
+            <div class="eight wide column">
+                <div class="ui icon buttons right aligned">
+                    <button (click)="addEdge()" title="Add relation" class="ui button">
+                <i class="plus icon"></i>
+                Add relation
+            </button>
+                    <button (click)="deleteSelected()" title="Delete selected" class="ui red button">
+                <i class="delete icon"></i>
+                Delete
+            </button>
+                    <button (click)="save()" class="ui green button">
+          <i class="save icon"></i>
+          Save
+          </button>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <div class="ui form">
+                    <div class="inline fields">
+                        <label>Relations</label>
+                        <div *ngFor="let relation of relations" class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="relation" [value]="relation.value" checked="checked">
+                                <label id="{{relation.display}}" [style.color]="relation.value">{{relation.display}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        <div style="height: 470px" class="ui raised segment">
+            <a class="ui red ribbon label">Power Map</a>
+            <div id="visualization"></div>
+        </div>
+    </div>
+    <div class="six wide column">
+        <div style="height: 470px" class="ui raised segment">
+            <a class="ui green ribbon label">Information</a>
+            <div class="ui cards" style="margin: 5px 0;">
+                <div *ngIf="contact" class="card">
+                    <div class="content">
+                        <img class="right floated mini ui image" src="assets/images/1.jpg">
+                        <div class="header">
+                            {{contact.name}}
+                        </div>
+                        <div class="meta">
+                            {{contact.name}}
+                        </div>
+                        <div class="description">
+                            {{contact.formattedPhoneNumber}} {{contact.emailAddress}}
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui two buttons">
+                            <div class="ui basic green button">
+                                <a href="mailto:{{contact.emailAddress}}">
+                                    Email
+                                    </a>
+                            </div>
+                            <div class="ui basic red button">
+                                <a href="tel:{{contact.formattedPhoneNumber}}">
+                                    Call
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui small modal">
+    <div class="header">Header</div>
+    <div class="content">
+        <div class="ui fluid labeled input">
+            <div class="ui label">
+                Relation
+            </div>
+            <input type="text" id="relation" placeholder="Relation">
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui cancel red button">Cancel</div>
+        <div class="ui approve positive button">OK</div>
+    </div>
+</div>
+
+<div id="map-name" class="ui small modal">
+    <div class="header">Power Map Name</div>
+    <div class="content">
+        <div class="ui fluid labeled input">
+            <div class="ui label">
+                Name
+            </div>
+            <input [(ngModel)]="mapName" type="text" id="relation" placeholder="Power Map Name">
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui cancel red button">Cancel</div>
+        <div (click)="persist()" class="ui approve positive button">OK</div>
+    </div>
+</div>
+<div *ngIf="process" class="ui active inverted dimmer">
+    <div class="ui text loader">Loading</div>
+</div>

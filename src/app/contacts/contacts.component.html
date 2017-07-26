@@ -1,0 +1,59 @@
+<div class="ui segments">
+  <div class="segment">
+    <div class="ui fluid left icon input">
+      <input [(ngModel)]="contactFilter.contactName" type="text" placeholder="Search contacts...">
+      <i class="users icon"></i>
+    </div>
+  </div>
+  <div style="height: 500px;overflow: scroll" class="segment">
+        <a class="ui green label">Contacts</a>
+
+    <table class="ui table">
+      <!--<tbody [dragula]='"bag-one"' [dragulaModel]='contacts'>-->
+      <tbody>
+        <tr *ngFor="let contact of contacts | filterBy: contactFilter">
+          <td>
+            <h4 class="ui image header">
+              <img class="ui mini avatar image" [src]="'assets/images/1.jpg'" alt="">
+              <div class="content">
+                {{contact.contactName}}
+                <div class="sub header">{{contact.formattedPhoneNumber}}
+                </div>
+              </div>
+            </h4>
+          </td>
+          <td>
+            <button (click)="addContactToMap(event, contact)" class="circular ui icon button">
+          <i class="icon plus"></i>
+        </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="ui red label">Employees</a>
+
+    <table class="ui table">
+      <!--<tbody [dragula]='"bag-one"' [dragulaModel]='contacts'>-->
+      <tbody>
+        <tr *ngFor="let resource of resources | filterBy: resourceFilter">
+          <td>
+            <h4 class="ui image header">
+              <img class="ui mini avatar image" [src]="'assets/images/1.jpg'" alt="">
+              <div class="content">
+                {{resource.partyName}}
+                <div class="sub header">{{resource.formattedPhoneNumber}}
+                </div>
+              </div>
+            </h4>
+          </td>
+          <td>
+            <button (click)="addResourceToMap(event, resource)" class="circular ui icon button">
+          <i class="icon plus"></i>
+        </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

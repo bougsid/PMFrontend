@@ -1,0 +1,12 @@
+<div class="ui sidebar inverted vertical menu">
+  <!-- <a [routerLinkActive]="['active']" class="item" *ngFor="let menuItem of menu" [routerLink]="[menuItem.link]"><i class="{{menuItem.icon}}"></i>{{menuItem.title}}</a>
+ -->
+  <a [routerLinkActive]="['active']" class="item"><i class="plus"></i>Menu</a>
+<a [routerLink]="'/osc/home/powermaps'" [routerLinkActive]="['active']" class="item"><i class="plus"></i>Power Map List</a>
+<!--<a [routerLink]="'/home/powermap'" [routerLinkActive]="['active']" class="item"><i class="plus"></i>New Power Map</a>-->
+<a [routerLink]="'/osc/home/opportunities'" [routerLinkActive]="['active']" class="item"><i class="plus"></i>Opportunities</a>
+
+</div>
+<div style="padding: 20px;" class="dimmed pusher">
+  <router-outlet></router-outlet>
+</div>

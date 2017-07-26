@@ -1,0 +1,28 @@
+<h3 class="ui center aligned icon header">
+  <i class="circular browser icon"></i>
+  Opportunities List
+</h3>
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th class="seven wide">#ID</th>
+      <th class="seven wide">Name</th>
+      <th class="seven wide">Client</th>
+      <th class="seven wide">Primary Contact</th>
+      <th class="seven wide">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let opportunity of opportunities">
+      <td>{{opportunity.optyNumber}}</td>
+      <td>{{opportunity.name}}</td>
+      <td>{{opportunity.targetPartyName}}</td>
+      <td>{{opportunity.primaryContactPartyName}}</td>
+      <td class="right aligned">
+        <button [routerLink]="['/osc/home/powermap/',opportunity.optyNumber]" class="ui green icon button">
+          <i class="edit icon"></i>
+          </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

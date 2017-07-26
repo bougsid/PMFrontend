@@ -1,0 +1,24 @@
+<h3 class="ui center aligned icon header">
+  <i class="circular browser icon"></i>
+  Power Map List
+</h3>
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th class="seven wide">#ID</th>
+      <th class="seven wide">Name</th>
+      <th class="seven wide">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let map of powerMaps">
+      <td>{{map.did}}</td>
+      <td>{{map.mapName}}</td>
+      <td class="right aligned">
+        <button [routerLink]="['/osc/home/powermap/',map.id]" class="ui green icon button">
+          <i class="edit icon"></i>
+          </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
